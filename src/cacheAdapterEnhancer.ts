@@ -37,7 +37,7 @@ export default function cacheAdapterEnhancer(adapter: AxiosAdapter, options: Opt
 		const { url, method, params, paramsSerializer, forceUpdate } = config;
 		const useCache = (config[cacheFlag] !== void 0 && config[cacheFlag] !== null) ? config[cacheFlag] : enabledByDefault;
 
-		if (method === 'get' && useCache) {
+		if (useCache) {
 
 			// if had provide a specified cache, then use it instead
 			const cache: ICacheLike<AxiosPromise> = isCacheLike(useCache) ? useCache : defaultCache;
